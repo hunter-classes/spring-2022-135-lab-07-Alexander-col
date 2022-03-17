@@ -5,20 +5,19 @@ std::string removeLeadingSpaces(std::string str)
 {
     std::string output = "";
     int sl = str.length();
+    int ns = 0; // ns stands for No Space
     for (int i = 0; i != sl; i++)
     {
-        if (str[i] != ' ' )
-        output += str[i];
+        if (str[i] != ' ')
+        {
+        ns = i;
+        break;
+        }
+    }
 
-
-        // if (str[i+1] != ' ' || str[i-1] != ' ')
-        // {
-        //     output += str[i];
-        // }
-        // else if (str[i] == ' ')
-        // {
-        // output -= str[i];
-        // }
+    for (int j = ns; j != sl; j++)
+    {
+        output += str[j];
     }
 
     return output;
