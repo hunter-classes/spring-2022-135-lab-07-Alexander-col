@@ -1,37 +1,51 @@
-#include <iostream>
-#include <fstream>
+#include <iostream> 
+#include <fstream> 
 #include "unindent.h"
+#include "indent.h"
 
-int main()
-{
+int main() { 
     std::string line;
-    int out_brace = 0;
-    int in_brace = 0; 
-    std::cout << removeLeadingSpaces("                int main(){") << std::endl;
-
-	std::string t_line;
-
-	std::ifstream bad_code("bad-code.cpp");
-	while (getline(bad_code, t_line))
-	{
-		std::cout << t_line << std::endl;
-	}
-	bad_code.close();
-
-	bad_code.open("bad-code.cpp");
-	while (getline(bad_code, t_line))
-	{
-		std::cout << removeLeadingSpaces(t_line) << std::endl;
-	}
-	bad_code.close();
+    int start_brace = 0;
+    int out_brace = 0; 
 
 
+    std::ifstream myStream("bad-code.cpp"); 
+    if(myStream.fail()) 
+    { 
+        std::cerr << "File can't be opened"; 
+        exit(1); //In case file did not open it will close and close off the
+    }
 
 
+    std::cout << "Code before it is udented " << std::endl;
+    while(getline(myStream, line)) 
+    { 
+        std::cout << line << std::endl;
+    }
+    myStream.close();
+    std::cout << "==============================================================================================\n";
 
-    return 0;
+    std::cout << "Task A is removing the indentations" << std::endl;
+    myStream.open("bad-code.cpp");
+    while(getline(myStream, line)) 
+    { 
+    std::cout << removeLeadingSpaces(line) << std::endl;
+    }
+    myStream.close();
+    std::cout << "==============================================================================================\n";
+    std::cout << "Task B indented lines of code " << std::endl; 
+
+    myStream.open("bad-code.cpp");
+
+    while(getline(myStream, line)) { 
+        out_brace = countChar(line, '}') + out_brace;
+        std::string unindented_line = removeLeadingSpaces(line);
+        std::cout << indent(unindented_line, start_brace, out_brace) << std::endl;
+        start_brace = countChar(line, '{') + start_brace;
+    }
+
+    myStream.close();
 }
-
 
 
 
