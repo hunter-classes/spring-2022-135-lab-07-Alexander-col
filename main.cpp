@@ -16,11 +16,14 @@ int main()
 	{
 		std::cout << t_line << std::endl;
 	}
+	bad_code.close();
 
-		while (getline(bad_code, t_line))
+	bad_code.open("bad-code.cpp");
+	while (getline(bad_code, t_line))
 	{
 		std::cout << removeLeadingSpaces(t_line) << std::endl;
 	}
+	bad_code.close();
 
 
 
