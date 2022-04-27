@@ -17,7 +17,8 @@ int main() {
     }
 
 
-    std::cout << "Code before it is udented " << std::endl;
+    std::cout << "Code before it is indented " << std::endl;
+    std::cout << "                          " << std::endl;
     while(getline(myStream, line)) 
     { 
         std::cout << line << std::endl;
@@ -26,6 +27,7 @@ int main() {
     std::cout << "==============================================================================================\n";
 
     std::cout << "Task A is removing the indentations" << std::endl;
+    std::cout << "                          " << std::endl;
     myStream.open("bad-code.cpp");
     while(getline(myStream, line)) 
     { 
@@ -34,6 +36,7 @@ int main() {
     myStream.close();
     std::cout << "==============================================================================================\n";
     std::cout << "Task B indented lines of code " << std::endl; 
+    std::cout << "                          " << std::endl;
 
     myStream.open("bad-code.cpp");
 

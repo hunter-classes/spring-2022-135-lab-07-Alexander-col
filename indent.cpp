@@ -3,23 +3,23 @@
 #include "indent.h"
 
 int countChar(std::string line, char c) { 
-    int total = 0; 
+    int totalcount = 0; 
 
     for (int i = 0; i < line.length(); i++) 
     { 
         if(line[i] == c) 
         { 
-            total++; //keep track of braces in the line of code given
+            totalcount++; //keep track of braces in the line of code given
         }
     }
     
     if (line.find("{") < line.find("}") && line.find("{") != -1 && line.find("}") != -1) 
     { 
-        return total - 1;
+        return totalcount - 1;
     } 
     else 
     { 
-        return total;
+        return totalcount;
     }
 }
 
