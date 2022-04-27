@@ -14,7 +14,7 @@ std::string removeLeadingSpaces(std::string str)
     int ns = 0; // ns stands for No Space
     for (int i = 0; i != sl; i++)
     {
-        if (isspace(str[i]) == 0)
+        if (isspace(str[i]) == 0) // making an addtional comment to push on github to leave histroy 
         {
         ns = i;
         break;
