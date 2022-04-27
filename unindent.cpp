@@ -1,8 +1,12 @@
 #include <iostream>
 #include <fstream> 
 #include "unindent.h"
+#include <ctype.h>
+#include <stdio.h>
 
-
+// Assuming that this is the dev branch I will now start the change of the function 
+// I will change the removeLeadingSpaces func to use the isspace(c) function that was 
+// suggested on the lab website
 std::string removeLeadingSpaces(std::string str)
 {
     std::string output = "";
@@ -10,7 +14,7 @@ std::string removeLeadingSpaces(std::string str)
     int ns = 0; // ns stands for No Space
     for (int i = 0; i != sl; i++)
     {
-        if (str[i] != ' ')
+        if (isspace(str[i]) == 0) // making an addtional comment to push on github to leave histroy 
         {
         ns = i;
         break;
@@ -26,3 +30,4 @@ std::string removeLeadingSpaces(std::string str)
 
 
 }
+// the function now incoperaterates the isspace(c) function which works with the rest of the lab. 
